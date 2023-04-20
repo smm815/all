@@ -20,7 +20,7 @@ internal object ToastUtil {
     fun show(context: Context?, msg: Any?, duration: Int = Toast.LENGTH_SHORT) {
         try {
             toast?.cancel()
-            toast = Toast.makeText(context?.applicationContext, msg.toString(), duration)
+            toast = Toast.makeText(context, msg.toString(), duration)
             toast?.show()
         } catch (_: Exception) {
         }

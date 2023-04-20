@@ -3,6 +3,7 @@ package com.smm.help
 import android.app.Application
 import android.widget.Toast
 import com.smm.help.util.LogUtil
+import com.smm.help.util.SharedPreferenceUtil
 import com.smm.help.util.ToastUtil
 
 /**
@@ -79,4 +80,27 @@ object Help {
     @JvmStatic
     fun toast(msg: Any?, duration: Int = Toast.LENGTH_SHORT) =
         ToastUtil.show(config?.application, msg, duration)
+
+    /**
+     * 存储共享参数
+     *
+     * @param name 名
+     * @param key 键
+     * @param value 值
+     * */
+    @JvmStatic
+    fun putSharedPreference(name: String?, key: String?, value: Any?) =
+        SharedPreferenceUtil.put(config?.application, name, key, value)
+
+    /**
+     * 获取共享参数
+     *
+     * @param name 名
+     * @param key 键
+     * @param defValue 默认值
+     * @return Any? 共享参数
+     * */
+    @JvmStatic
+    fun getSharedPreference(name: String?, key: String?, defValue: Any?) =
+        SharedPreferenceUtil.get(config?.application, name, key, defValue)
 }
