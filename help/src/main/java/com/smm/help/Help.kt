@@ -1,7 +1,9 @@
 package com.smm.help
 
 import android.app.Application
+import android.widget.Toast
 import com.smm.help.util.LogUtil
+import com.smm.help.util.ToastUtil
 
 /**
  * 帮助
@@ -14,7 +16,7 @@ object Help {
      *
      * @param application 应用
      * */
-    class Config private constructor(private val application: Application) {
+    class Config private constructor(internal val application: Application) {
         internal var debug = false//调试
 
         /**
@@ -68,4 +70,13 @@ object Help {
      * */
     @JvmStatic
     fun log(tag: Any?, msg: Any?) = LogUtil.print(tag, msg)
+
+    /**
+     * 吐司
+     *
+     * @param msg 信息
+     * */
+    @JvmStatic
+    fun toast(msg: Any?, duration: Int = Toast.LENGTH_SHORT) =
+        ToastUtil.show(config?.application, msg, duration)
 }

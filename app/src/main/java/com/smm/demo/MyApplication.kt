@@ -7,6 +7,5 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         Help.init(Help.Config.Builder(this).setDebug(true).build())
-        Help.log("MyApplication", "onCreate")
     }
 }
