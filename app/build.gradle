@@ -1,0 +1,28 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+android {
+    namespace 'com.smm.demo'
+    compileSdk 33
+    defaultConfig {
+        applicationId 'com.smm.demo'
+        minSdk 16
+        targetSdk 33
+        versionCode 1
+        versionName '1.0'
+        resConfigs 'en'
+    }
+    buildTypes {
+        debug {
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.10.0'
+}
