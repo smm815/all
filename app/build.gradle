@@ -11,14 +11,24 @@ android {
         targetSdk 33
         versionCode 1
         versionName '1.0'
-        resConfigs 'en'
+    }
+    signingConfigs {
+        release {
+            Properties properties = new Properties()
+            properties.load(project.rootProject.file('local.properties').newDataInputStream())
+            storeFile file(properties.getProperty('jks.storeFile'))
+            storePassword properties.getProperty('jks.storePassword')
+            keyAlias properties.getProperty('jks.keyAlias')
+            keyPassword properties.getProperty('jks.keyPassword')
+        }
     }
     buildTypes {
-        debug {
+        release {
             minifyEnabled true
             shrinkResources true
             zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
