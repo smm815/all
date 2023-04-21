@@ -6,6 +6,6 @@ import com.smm.help.Help
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        Help.init(Help.Config.Builder(this).setDebug(true).build())
+        Help.init(Help.Config.Builder(this).setDebug(true).setWidth(540F).build())
     }
 }
